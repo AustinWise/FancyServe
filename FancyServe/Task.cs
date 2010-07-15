@@ -13,7 +13,7 @@ namespace FancyServe
             isNew = true;
         }
 
-        public Server<T> Parent { get; set; }
+        public Server<T> Server { get; set; }
         public WaitHandle Wait { get; private set; }
         private IEnumerator<IAsyncResult> Iter;
         private bool isNew;

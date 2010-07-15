@@ -12,9 +12,8 @@ namespace FancyServe
         static void Main(string[] args)
         {
             //new Program().Run();
-            var srv = new Server<object>();
-            srv.AddTask(new FileReadTask());
-            srv.AddTask(new FileReadTask());
+            var srv = new Server<MyServerContext>();
+            srv.AddTask(new TcpServerTask());
 
             srv.Run();
         }

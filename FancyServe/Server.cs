@@ -24,6 +24,13 @@ namespace FancyServe
 
             while (tasks.Count != 0)
             {
+                foreach (var t in newTasks)
+                {
+                    if (t.Run())
+                        tasks.Add(t);
+                }
+                newTasks.Clear();
+
                 Console.Write("\tWaiting...");
 
                 var waitableTasks = tasks.Where(s => s.Wait != null).Select(s => s.Wait).ToArray();
@@ -42,15 +49,12 @@ namespace FancyServe
                 }
 
                 tasks = aliveTasks;
-
-                tasks.AddRange(newTasks);
-                newTasks.Clear();
             }
         }
 
         public void AddTask(Task<T> task)
         {
-            task.Parent = this;
+            task.Server = this;
             this.newTasks.Add(task);
         }
     }

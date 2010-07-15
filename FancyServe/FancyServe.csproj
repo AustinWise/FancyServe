@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionTask.cs" />
     <Compile Include="FileReadTask.cs" />
     <Compile Include="MyServerContext.cs" />
     <Compile Include="Program.cs" />
